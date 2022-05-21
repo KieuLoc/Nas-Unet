@@ -122,7 +122,7 @@ class Network(object):
         self.criterion = criterion.to(self.device)
 
         self.show_dice_coeff = False
-        if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve', 'promise12']:
+        if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve', 'promise12', 'pascal_voc']:
             self.show_dice_coeff = True
 
         self.logger.info("Using loss {}".format(self.criterion))
