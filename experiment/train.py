@@ -90,15 +90,14 @@ class Network(object):
         kwargs = {'num_workers': self.cfg['training']['n_workers'], 'pin_memory': True}
 
         # Split val dataset
-        # if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve', 'promise12', 'pascal_voc']:
-        if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve']:
+        if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve', 'promise12', 'pascal_voc']:
+        #if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve']:
             num_train = len(trainset)
             indices = list(range(num_train))
             split = int(np.floor(0.8 * num_train))
             self.logger.info('split training data : 0.8')
             print("0.8 Data ")
             print(f"len trainset = {len(trainset)}")
-            print("Not split data")
             self.train_queue = data.DataLoader(trainset, batch_size=self.batch_size,
                                                sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[:split]),
                                                **kwargs)
