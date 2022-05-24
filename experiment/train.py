@@ -101,12 +101,12 @@ class Network(object):
             self.train_queue = data.DataLoader(trainset, batch_size=self.batch_size,
                                                sampler=torch.utils.data.sampler.SubsetRandomSampler(indices[:split]),
                                                **kwargs)
-            print(f"train_queue = {len(train_queue)}")
+            print(f"train_queue = {len(self.train_queue)}")
             self.valid_queue = data.DataLoader(trainset, batch_size=self.batch_size,
                                                sampler=torch.utils.data.sampler.SubsetRandomSampler(
                                                    indices[split:num_train]),
                                                **kwargs)
-            print(f"valid_queue = {len(valid_queue)}")
+            print(f"valid_queue = {len(self.valid_queue)}")
         else:
             print("Not split data")
             self.train_queue = data.DataLoader(trainset, batch_size=self.batch_size,
