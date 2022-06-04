@@ -30,10 +30,9 @@ class VOCLocKxSegmentation(BaseDataset):
         m_train_labels = np.load(self.INPUT + '/seismic-facies/labels_train.npz', allow_pickle=True, mmap_mode='r')['labels']
         #m_test_dataset = np.load(self.INPUT + '/seismic-facies/data_test_1.npz', allow_pickle=True, mmap_mode='r')['data']
         #m_test_labels = np.load( self.INPUT + '/seimic-data/sample_submission_1.npz', allow_pickle=True, mmap_mode='r')['prediction']
-        #m_train_dataset, m_test_dataset, m_train_labels, m_test_labels = train_test_split(
-        #m_train_dataset, m_train_labels, test_size = 0.2, random_state = 42)
-        m_train_dataset1, m_test_dataset, m_train_labels1, m_test_labels = train_test_split(
-            m_train_dataset, m_train_labels, test_size=0.2, random_state=42)
+        m_train_dataset, m_test_dataset, m_train_labels, m_test_labels = train_test_split(
+        m_train_dataset, m_train_labels, test_size = 0.2, random_state = 42)
+
         print("Run NAS UNet from LOC KX")
         self.joint_transform = None
 
@@ -45,8 +44,8 @@ class VOCLocKxSegmentation(BaseDataset):
         elif self.mode == 'val':
             self.train_dataset = m_test_dataset
             self.train_labels = m_test_labels
-            print(f"train size1: + data={len(m_train_dataset1)}, label={len(m_train_labels1)}")
-            print(f"test  size1: + data={len(m_test_dataset)}, label={len(m_test_labels)}")
+            print(f"train val size: + data={len(self.m_test_dataset)}, label={len(self.m_test_labels)}")
+            print(f"test val size: + data={len(m_test_dataset)}, label={len(m_test_labels)}")
         # elif self.mode == 'test':
         #     self.images = []
         #     return
