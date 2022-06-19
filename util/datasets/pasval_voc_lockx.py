@@ -42,10 +42,11 @@ class VOCLocKxSegmentation(BaseDataset):
             print(f"train sizes: +data={len(self.train_dataset)}, label={len(self.train_labels)}")
             print(f"test sizes: + data={len(m_test_dataset)}, label={len(m_test_labels)}")
         elif self.mode == 'val':
-            self.train_dataset = m_test_dataset
-            self.train_labels = m_test_labels
-            print(f"train val size: + data={len(m_test_dataset)}, label={len(m_test_labels)}")
-            print(f"test val size: + data={len(m_test_dataset)}, label={len(m_test_labels)}")
+            # self.train_dataset = m_test_dataset
+            # self.train_labels = m_test_labels
+            # print(f"train val size: + data={len(m_test_dataset)}, label={len(m_test_labels)}")
+            # print(f"test val size: + data={len(m_test_dataset)}, label={len(m_test_labels)}")
+            print(f"hê")
         # elif self.mode == 'test':
         #     self.images = []
         #     return
