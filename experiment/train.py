@@ -154,7 +154,7 @@ class Network(object):
                                        genotype=genotype,
                                        double_down_channel=self.cfg['training']['double_down_channel']
                                        )
-        summary(model, input_size=(-1, 1, 28, 28))
+        summary(model, input_size=(1, 1, 28, 28))
         # init weight using hekming methods
         model.apply(weights_init)
         self.logger.info('Initialize the model weights: kaiming_uniform')
