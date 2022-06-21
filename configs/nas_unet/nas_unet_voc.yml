@@ -48,8 +48,7 @@ training:
     grad_clip: 3
     max_patience: 1000
     model_optimizer:
-        #name: 'sgd'
-        name: 'adam'
+        name: 'sgd'
         lr: 5.0e-2
         weight_decay: 1.0e-4
     loss:
