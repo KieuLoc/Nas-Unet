@@ -90,7 +90,7 @@ class Network(object):
         kwargs = {'num_workers': self.cfg['training']['n_workers'], 'pin_memory': True}
 
         # Split val dataset
-        if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve', 'promise12', 'pascal_voc']:
+        if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve', 'promise12']:
         #if self.cfg['data']['dataset'] in ['bladder', 'chaos', 'ultrasound_nerve']:
             num_train = len(trainset)
             indices = list(range(num_train))
