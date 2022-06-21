@@ -8,6 +8,7 @@ from tqdm import tqdm
 import torch.nn as nn
 from torch.utils import data
 import torch.backends.cudnn as cudnn
+from torchinfo import summary
 
 sys.path.append('..')
 from util.loss.loss import SegmentationLosses
@@ -153,7 +154,7 @@ class Network(object):
                                        genotype=genotype,
                                        double_down_channel=self.cfg['training']['double_down_channel']
                                        )
-
+        summary(model, input_size=(batch_size, 1, 28, 28))
         # init weight using hekming methods
         model.apply(weights_init)
         self.logger.info('Initialize the model weights: kaiming_uniform')
