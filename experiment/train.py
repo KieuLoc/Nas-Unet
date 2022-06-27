@@ -155,7 +155,7 @@ class Network(object):
                                        double_down_channel=self.cfg['training']['double_down_channel']
                                        )
         # print(model)
-        print(model.summary())
+        summary(model, (3, 224, 224))
         # init weight using hekming methods
         model.apply(weights_init)
         self.logger.info('Initialize the model weights: kaiming_uniform')
