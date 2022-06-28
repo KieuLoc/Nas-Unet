@@ -8,7 +8,6 @@ from tqdm import tqdm
 import torch.nn as nn
 from torch.utils import data
 import torch.backends.cudnn as cudnn
-from torchinfo import summary
 
 sys.path.append('..')
 from util.loss.loss import SegmentationLosses
