@@ -21,7 +21,7 @@ from util.challenge.promise12.store_test_seg import predict_test
 from util.metrics import *
 from models import get_segmentation_model
 import models.geno_searched as geno_types
-from torchsummary import summary
+
 
 class Network(object):
 
@@ -154,7 +154,7 @@ class Network(object):
                                        double_down_channel=self.cfg['training']['double_down_channel']
                                        )
         # print(model)
-        summary(model, (3, 224, 224))
+        #summary(model, (3, 224, 224))
         print(model)
         # print(model.summary())
         # init weight using hekming methods
