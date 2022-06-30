@@ -155,6 +155,7 @@ class Network(object):
                                        double_down_channel=self.cfg['training']['double_down_channel']
                                        )
         # print(model)
+        model.cuda()
         summary(model, (3, 224, 224))
         # print(model)
         # print(model.summary())
