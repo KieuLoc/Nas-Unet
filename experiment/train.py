@@ -22,6 +22,7 @@ from util.metrics import *
 from models import get_segmentation_model
 import models.geno_searched as geno_types
 from tensorboardX import SummaryWriter
+from torchsummary import summary
 
 class Network(object):
 
