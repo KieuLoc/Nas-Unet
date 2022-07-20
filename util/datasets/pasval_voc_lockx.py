@@ -73,7 +73,7 @@ class VOCLocKxSegmentation(BaseDataset):
         img = np.clip(img, 0, 255)
         img = (img * 255).astype(int)
         img = img / 255.
-
+        print("PreTrainDataaaa")
         img = np.append(np.append([img], [img], axis=0), [img], axis=0)
 
         img = torch.from_numpy(img).type(torch.FloatTensor)
