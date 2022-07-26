@@ -78,30 +78,8 @@ class VOCLocKxSegmentation(BaseDataset):
 
         img = torch.from_numpy(img).type(torch.FloatTensor)
         label = torch.from_numpy(label).type(torch.FloatTensor)
-
+        print(f"img sizes: {len(img)}")
         return img, label
-
-    # def __getitem__(self, index):
-    #     img = self.train_dataset[:, index, :]
-    #     label = self.train_labels[:, index, :]
-    #
-    #     img = np.expand_dims(img, axis=2).astype('float32')
-    #     label = np.expand_dims(label, axis=2).astype('float32')
-    #
-    #     img = cv2.resize(img, (256, 512), interpolation=cv2.INTER_AREA)
-    #     label = cv2.resize(label, (256, 512), interpolation = cv2.INTER_NEAREST)
-    #
-    #     img = img / np.amax(img)
-    #     img = np.clip(img, 0, 255)
-    #     img = (img * 255).astype(int)
-    #     img = img / 255.
-    #
-    #     img = np.append(np.append([img], [img], axis=0), [img], axis=0)
-    #
-    #     img = torch.from_numpy(img).type(torch.FloatTensor)
-    #     label = torch.from_numpy(label).type(torch.FloatTensor)
-    #
-    #     return img, label
 
     def __len__(self):
         return len(self.train_dataset[0][0])
