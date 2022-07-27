@@ -79,6 +79,7 @@ class VOCLocKxSegmentation(BaseDataset):
         img = torch.from_numpy(img).type(torch.FloatTensor)
         label = torch.from_numpy(label).type(torch.FloatTensor)
         print(f"img sizes: {len(img)}")
+        print(f"type img: {type(img)}")
         return img, label
 
     def __len__(self):
