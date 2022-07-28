@@ -59,53 +59,53 @@ class VOCLocKxSegmentation(BaseDataset):
             assert (len(self.images) == len(self.masks))
 
     def __getitem__(self, index):
-        # img = self.train_dataset[:, :, index]
-        # label = self.train_labels[:, :, index]
-        #
-        # img = np.expand_dims(img, axis=2).astype('float32')
-        # label = np.expand_dims(label, axis=2).astype('float32')
-        #
-        # img = cv2.resize(img, (128, 128))
-        # label = cv2.resize(label, (128, 128))
-        #
-        # img = img / np.amax(img)
-        # img = np.clip(img, 0, 255)
-        # img = (img * 255).astype(int)
-        # img = img / 255.
+        img = self.train_dataset[:, :, index]
+        label = self.train_labels[:, :, index]
+
+        img = np.expand_dims(img, axis=2).astype('float32')
+        label = np.expand_dims(label, axis=2).astype('float32')
+
+        img = cv2.resize(img, (128, 128))
+        label = cv2.resize(label, (128, 128))
+
+        img = img / np.amax(img)
+        img = np.clip(img, 0, 255)
+        img = (img * 255).astype(int)
+        img = img / 255.
         #-----------------------------------------------------
-        img2 = self.train_dataset[:, :, index]
-        label2 = self.train_labels[:, :, index]
-
-        img2 = np.expand_dims(img2, axis=2).astype('float32')
-        label2 = np.expand_dims(label2, axis=2).astype('float32')
-
-        img2 = cv2.resize(img2, (128, 128))
-        label2 = cv2.resize(label2, (128, 128))
-
-        img2 = img2 / np.amax(img2)
-        img2 = np.clip(img2, 0, 255)
-        img2 = (img2 * 255).astype(int)
-        img2 = img2 / 255.
-        #-----
-        img1 = self.train_dataset[:, index, :]
-        label1 = self.train_labels[:, index, :]
-
-        img1 = np.expand_dims(img1, axis=2).astype('float32')
-        label1 = np.expand_dims(label1, axis=2).astype('float32')
-
-        img1 = cv2.resize(img1, (128, 128))
-        label1 = cv2.resize(label1, (128, 128))
-
-        img1 = img1 / np.amax(img1)
-        img1 = np.clip(img1, 0, 255)
-        img1 = (img1 * 255).astype(int)
-        img1 = img1 / 255.
-        #-----------------------------------------------------
-        img = np.append(np.append([img1], [img1], axis=0), [img1], axis=0)
-        img = np.append(np.append([img2], [img2], axis=0), [img2], axis=0)
-
-        label = np.append(np.append([label1], [label1], axis=0), [label1], axis=0)
-        label = np.append(np.append([label2], [label2], axis=0), [label2], axis=0)
+        # img2 = self.train_dataset[:, :, index]
+        # label2 = self.train_labels[:, :, index]
+        #
+        # img2 = np.expand_dims(img2, axis=2).astype('float32')
+        # label2 = np.expand_dims(label2, axis=2).astype('float32')
+        #
+        # img2 = cv2.resize(img2, (128, 128))
+        # label2 = cv2.resize(label2, (128, 128))
+        #
+        # img2 = img2 / np.amax(img2)
+        # img2 = np.clip(img2, 0, 255)
+        # img2 = (img2 * 255).astype(int)
+        # img2 = img2 / 255.
+        # #-----
+        # img1 = self.train_dataset[:, index, :]
+        # label1 = self.train_labels[:, index, :]
+        #
+        # img1 = np.expand_dims(img1, axis=2).astype('float32')
+        # label1 = np.expand_dims(label1, axis=2).astype('float32')
+        #
+        # img1 = cv2.resize(img1, (128, 128))
+        # label1 = cv2.resize(label1, (128, 128))
+        #
+        # img1 = img1 / np.amax(img1)
+        # img1 = np.clip(img1, 0, 255)
+        # img1 = (img1 * 255).astype(int)
+        # img1 = img1 / 255.
+        # #-----------------------------------------------------
+        # img = np.append(np.append([img1], [img1], axis=0), [img1], axis=0)
+        # img = np.append(np.append([img2], [img2], axis=0), [img2], axis=0)
+        #
+        # label = np.append(np.append([label1], [label1], axis=0), [label1], axis=0)
+        # label = np.append(np.append([label2], [label2], axis=0), [label2], axis=0)
 
         img = torch.from_numpy(img).type(torch.FloatTensor)
         label = torch.from_numpy(label).type(torch.FloatTensor)
