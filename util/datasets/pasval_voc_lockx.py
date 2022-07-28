@@ -103,6 +103,10 @@ class VOCLocKxSegmentation(BaseDataset):
         #-----------------------------------------------------
         img = np.append(np.append([img1], [img1], axis=0), [img1], axis=0)
         img = np.append(np.append([img2], [img2], axis=0), [img2], axis=0)
+
+        label = np.append(np.append([label1], [label1], axis=0), [label1], axis=0)
+        label = np.append(np.append([label2], [label2], axis=0), [label2], axis=0)
+
         img = torch.from_numpy(img).type(torch.FloatTensor)
         label = torch.from_numpy(label).type(torch.FloatTensor)
         #print(f"img sizes: {len(img)}")
