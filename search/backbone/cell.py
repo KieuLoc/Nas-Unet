@@ -49,7 +49,7 @@ class Cell(nn.Module):
         self.preprocess1 = ConvOps(c_prev, c, kernel_size=1, affine=False, ops_order='act_weight_norm')
 
         self._ops = nn.ModuleList()
-        print("ConvOppppppppp")
+
         # inp2changedim = 2 if cell_type == 'down' else 1
         idx_up_or_down_start = 0 if cell_type == 'down' else 1
         for i in range(self._meta_node_num):

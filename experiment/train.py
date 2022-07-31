@@ -36,7 +36,7 @@ class Network(object):
 
     def _init_configure(self):
         parser = argparse.ArgumentParser(description='config')
-
+        print("2")
         # Add default argument
         parser.add_argument('--config',nargs='?',type=str,default='../configs/nas_unet/nas_unet_chaos.yml',
                             help='Configuration file to use')
@@ -56,6 +56,7 @@ class Network(object):
         print('Usage model :{}'.format(self.model_name))
 
     def _init_logger(self):
+        print("3")
         log_dir = '../logs/'+ self.model_name + '/train' + '/{}'.format(self.cfg['data']['dataset']) \
                   +'/{}'.format(time.strftime('%Y%m%d-%H%M%S'))
         self.logger = get_logger(log_dir)
@@ -68,6 +69,7 @@ class Network(object):
         shutil.copy(self.args.config, self.save_path)
 
     def _init_device(self):
+        print("4")
         if not torch.cuda.is_available():
             self.logger.info('no gpu device available')
             sys.exit(1)
@@ -81,6 +83,7 @@ class Network(object):
         self.device = torch.device('cuda:{}'.format(0 if self.cfg['training']['multi_gpus'] else self.device_id))
 
     def _init_dataset(self):
+        print("5")
         trainset = get_dataset(self.cfg['data']['dataset'], split='train', mode='train')
         valset = get_dataset(self.cfg['data']['dataset'], split='val', mode ='val')
         # testset = get_dataset(self.cfg['data']['dataset'], split='test', mode='test')
@@ -116,7 +119,7 @@ class Network(object):
             self.valid_queue = data.DataLoader(valset, batch_size=self.batch_size,
                                                drop_last=False, shuffle=False, **kwargs)
     def _init_model(self):
-
+        print("6")
         # Setup loss function
         criterion = SegmentationLosses(name=self.cfg['training']['loss']['name'],
                                        aux_weight = self.cfg['training']['loss']['aux_weight'],
@@ -463,5 +466,6 @@ class Network(object):
             predict_test(predict_list, target, self.save_path+'/test_rst')
 
 if __name__ == '__main__':
+    print("1")
     train_network = Network()
     train_network.run()
