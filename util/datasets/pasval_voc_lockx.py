@@ -73,7 +73,7 @@ class VOCLocKxSegmentation(BaseDataset):
         # img = (img * 255).astype(int)
         # img = img / 255.
         #-----------------------------------------------------
-
+        img = (img - np.min(img)) / ( (np.max(img) - np.min(img)))
         # #-----------------------------------------------------
         img = np.append(np.append([img], [img], axis=0), [img], axis=0)
 
