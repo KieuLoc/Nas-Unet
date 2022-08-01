@@ -185,6 +185,7 @@ class Network(object):
 
 
     def _check_resume(self):
+        print("resume")
         self.dur_time = 0
         self.start_epoch = 0
         self.best_mIoU, self.best_loss, self.best_pixAcc, self.best_dice_coeff = 0, 1.0, 0, 0

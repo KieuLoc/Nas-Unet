@@ -43,6 +43,7 @@ class BaseNet(nn.Module):
     def base_forward(self, x):
         """For some model like : FCN, PSP"""
         if self.backbone.startswith('wideresnet'):
+            print("base_forward_iff")
             x = self.pretrained.mod1(x)
             x = self.pretrained.pool2(x)
             x = self.pretrained.mod2(x)
@@ -56,6 +57,7 @@ class BaseNet(nn.Module):
             x = self.pretrained.bn_out(x)
             return None, None, c3, x
         else:
+            print("base_forward_else")
             x = self.pretrained.conv1(x)
             x = self.pretrained.bn1(x)
             x = self.pretrained.relu(x)

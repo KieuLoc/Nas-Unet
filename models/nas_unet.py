@@ -40,6 +40,7 @@ class BuildCell(nn.Module):
         self._indices = idx
 
     def forward(self, s0, s1):
+        print("forwradUnet")
         s0 = self.preprocess0(s0)
         s1 = self.preprocess1(s1)
 
@@ -72,7 +73,7 @@ class NasUnet(BaseNet):
     def __init__(self, nclass, in_channels, backbone=None, aux=False,
                  c=48, depth=5, dropout_prob=0,
                  genotype=None, double_down_channel=False):
-
+        print("BaseNet")
         super(NasUnet, self).__init__(nclass, aux, backbone, norm_layer=nn.GroupNorm)
         self._depth = depth
         self._double_down_channel = double_down_channel
