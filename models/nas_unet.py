@@ -11,8 +11,10 @@ class BuildCell(nn.Module):
 
         if cell_type == 'down':
             # Note: the s0 size is twice than s1!
+            print("Help meee1")
             self.preprocess0 = ConvOps(c_prev_prev, c, kernel_size=1, stride=2, ops_order='act_weight_norm')
         else:
+            print("Help meee2")
             self.preprocess0 = ConvOps(c_prev_prev, c, kernel_size=1, ops_order='act_weight_norm')
         self.preprocess1 = ConvOps(c_prev, c, kernel_size=1, ops_order='act_weight_norm')
 
