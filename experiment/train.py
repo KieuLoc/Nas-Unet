@@ -139,10 +139,12 @@ class Network(object):
             genotype = eval('geno_types.%s' % self.cfg['training']['geno_type'])
             init_channels = self.cfg['training']['init_channels']
             depth = self.cfg['training']['depth']
+            print("try")
         except:
             genotype = None
             init_channels = 0
             depth = 0
+            print("except")
         # aux_weight > 0 and the loss is cross_entropy, we will use FCN header for auxiliary layer. and the aux set to True
         # aux_weight > 0 and the loss is cross_entropy_with_dice, we will combine cross entropy loss with dice loss
         self.aux = True if self.cfg['training']['loss']['aux_weight'] > 0  \
@@ -158,6 +160,7 @@ class Network(object):
                                        double_down_channel=self.cfg['training']['double_down_channel']
                                        )
         # print(model)
+        print("Pre_summarymodel")
         model.cuda()
         summary(model, (3, 224, 224))
         # print(model)

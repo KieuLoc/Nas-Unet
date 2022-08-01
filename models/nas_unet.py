@@ -40,7 +40,7 @@ class BuildCell(nn.Module):
         self._indices = idx
 
     def forward(self, s0, s1):
-        print("forwradUnet")
+        #print("forwradUnet")
         s0 = self.preprocess0(s0)
         s1 = self.preprocess1(s1)
 
