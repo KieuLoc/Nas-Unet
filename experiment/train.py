@@ -224,6 +224,7 @@ class Network(object):
         self.scheduler = get_scheduler(self.model_optimizer, scheduler_params)
 
     def run(self):
+        print("7")
         self.logger.info('args = %s', self.cfg)
         # Setup Metrics
         self.metric_train = SegmentationMetric(self.n_classes)
@@ -307,6 +308,7 @@ class Network(object):
 
 
     def train(self):
+        print("8")
         self.model.train()
         tbar = tqdm(self.train_queue)
         for step, (input, target) in enumerate(tbar):
