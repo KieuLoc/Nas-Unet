@@ -19,4 +19,5 @@ def get_segmentation_model(name, **kwargs):
         'segnet': get_segnet,
         'fc_densenet': get_fc_densenet,
     }
+    print("select model")
     return models[name.lower()](**kwargs)
