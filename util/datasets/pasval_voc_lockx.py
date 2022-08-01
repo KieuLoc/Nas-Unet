@@ -14,6 +14,7 @@ class VOCLocKxSegmentation(BaseDataset):
     CLASSES = [
         '1', '2', '3', '4', '5', '6'
     ]
+    print("VOCLkx")
     NUM_CLASS = 7
     IN_CHANNELS = 3
     CROP_SIZE = 256
