@@ -69,12 +69,12 @@ class VOCLocKxSegmentation(BaseDataset):
         img = cv2.resize(img, (128, 128))
         label = cv2.resize(label, (128, 128))
 
-        # img = img / np.amax(img)
-        # img = np.clip(img, 0, 255)
-        # img = (img * 255).astype(int)
-        # img = img / 255.
+        img = img / np.amax(img)
+        img = np.clip(img, 0, 255)
+        img = (img * 255).astype(int)
+        img = img / 255.
         #-----------------------------------------------------
-        img = (img - np.min(img)) / ( (np.max(img) - np.min(img)))
+        # img = (img - np.min(img)) / ( (np.max(img) - np.min(img)))
         # #-----------------------------------------------------
         img = np.append(np.append([img], [img], axis=0), [img], axis=0)
 

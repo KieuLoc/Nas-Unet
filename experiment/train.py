@@ -312,7 +312,7 @@ class Network(object):
 
 
     def train(self):
-        print("8")
+        # print("8")
         self.model.train()
         tbar = tqdm(self.train_queue)
         for step, (input, target) in enumerate(tbar):
