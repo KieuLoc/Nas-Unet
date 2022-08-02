@@ -59,10 +59,10 @@ class VOCLocKxSegmentation(BaseDataset):
             assert (len(self.images) == len(self.masks))
 
     def __getitem__(self, index):
-        img = self.train_dataset[:, :, index]
-        label = self.train_labels[:, :, index]
-        #img = self.train_dataset[:, index, :]
-        #label = self.train_labels[:, index, :]
+        #img = self.train_dataset[:, :, index]
+        #label = self.train_labels[:, :, index]
+        img = self.train_dataset[:, index, :]
+        label = self.train_labels[:, index, :]
         img = np.expand_dims(img, axis=2).astype('float32')
         label = np.expand_dims(label, axis=2).astype('float32')
 
@@ -84,8 +84,8 @@ class VOCLocKxSegmentation(BaseDataset):
         return img, label
 
     def __len__(self):
-        #return len(self.train_dataset[0])
-        return len(self.train_dataset[0][0])
+        return len(self.train_dataset[0])
+        #return len(self.train_dataset[0][0])
     @property
     def pred_offset(self):
         return 0
